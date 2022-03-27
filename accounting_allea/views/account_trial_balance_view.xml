@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <template id="search_template_extra_options_sova" inherit_id="account_reports.search_template_extra_options">
+            <xpath expr="//ul" position="inside">
+                <li t-if="options.get('types_groups') != None" title="Types and Groups" data-filter="types_groups" class="js_account_report_bool_filter"><a>Types and Groups</a></li>
+                <li t-if="options.get('detailed_lines') != None" title="Detailed lines" data-filter="detailed_lines" class="js_account_report_bool_filter"><a>Detailed lines</a></li>
+                <li t-if="options.get('reversed_lines')!=None" title="Without reversed lines" data-filter="reversed_lines" class="js_account_report_bool_filter"><a>Without reversed lines</a></li>
+                <li t-if="options.get('lines_without_attachment_only')!=None" title="Lines without attachments only" data-filter="lines_without_attachment_only" class="js_account_report_bool_filter"><a>Lines without attachments only</a></li>
+                <li t-if="options.get('separate_pages_for_accounts_by_print')!=None" title="Separate pages for accounts by print" data-filter="separate_pages_for_accounts_by_print" class="js_account_report_bool_filter"><a>Separate pages for accounts by print</a></li>
+                <li t-if="options.get('debit_minus_credit')!=None" title="Debit-credit init and total union" data-filter="debit_minus_credit" class="js_account_report_bool_filter"><a>Debit-credit init and total union</a></li>
+                <li t-if="options.get('no_80_restrict')!=None" title="Show more than 80 lines" data-filter="no_80_restrict" class="js_account_report_bool_filter"><a>Show more than 80 lines</a></li>
+            </xpath>
+            <xpath expr="//ul" position="after">
+                <!--<style>-->
+                    <!--.o_account_reports_domain_line_2 {-->
+                        <!--margin-left: 20px;-->
+                        <!--font-weight: bold !important;-->
+                        <!--background-color: #eeffcc !important;-->
+                    <!--}-->
+                <!--</style>-->
+            </xpath>
+        </template>
+    </data>
+</odoo>

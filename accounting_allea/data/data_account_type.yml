@@ -1,0 +1,31 @@
+-
+  !python {model: ir.model.data, id: False}: |
+    xml_references = [
+      #<ASSETS>
+        {'ref_id':ref('account.data_account_type_fixed_assets'), 'sequence_group':1, },
+        {'ref_id':ref('account.data_account_type_non_current_assets'), 'sequence_group':1, },
+        {'ref_id':ref('account.data_account_type_current_assets'), 'sequence_group':1, },
+        {'ref_id':ref('account.data_account_type_receivable'), 'sequence_group':1, },
+        {'ref_id':ref('account.data_account_type_prepayments'), 'sequence_group':1, },
+        {'ref_id':ref('account.data_account_type_liquidity'), 'sequence_group':1, },
+      #</ASSETS>
+      #<LIABILITIES>
+        {'ref_id':ref('account.data_account_type_current_liabilities'), 'sequence_group':2, },
+        {'ref_id':ref('account.data_account_type_payable'), 'sequence_group':2, },
+        {'ref_id':ref('account.data_account_type_non_current_liabilities'), 'sequence_group':2, },
+        #{'ref_id':ref('account.data_account_type_credit_card'), 'sequence_group':2, },
+      #</LIABILITIES>
+      #<Unallocated Earnings>
+        {'ref_id':ref('account.data_account_type_equity'), 'sequence_group':3, },
+        {'ref_id':ref('account.data_unaffected_earnings'), 'sequence_group':3, },
+        #{'ref_id':ref('account.data_account_type_other_income'), 'sequence_group':3, },
+        #{'ref_id':ref('account.data_account_type_depreciation'), 'sequence_group':3, },
+        #{'ref_id':ref('account.data_account_type_direct_costs'), 'sequence_group':3, },
+        {'ref_id':ref('account.data_account_type_revenue'), 'sequence_group':5, },
+        {'ref_id':ref('account.data_account_type_expenses'), 'sequence_group':5, },
+      #</Unallocated Earnings>
+    ]
+    for i, xml_record in enumerate(xml_references, 0):
+        ref_id = self.env['account.account.type'].browse(xml_record.pop('ref_id'))
+        xml_record.update(dict(sequence=xml_record['sequence_group']*10+i))
+        ref_id.write(xml_record)

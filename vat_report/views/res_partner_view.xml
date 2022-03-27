@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="res_partner_form_vat_report">
+        <field name="name">res.partner.form.vat_report</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field name="is_in_eu" invisible="1" class="oe_inline"/>
+                <img attrs="{'invisible': [('is_in_eu', '!=', True)]}"
+                     src="data:image/webp;base64, UklGRroAAABXRUJQVlA4TK4AAAAvF8ADAPeAoI3U3D0gAxUzMP+msKGgbRs5mT7bHZzDdQrZSIJ2/QnO5lgO4535j0eMnxKME5QogHWPeekBm9uQJE9EgUBDIUHN+j8pAZsdJ9tXMOKnDAwjSTY1j9828w/TTiCi/8kXcuFRQtOScF+OMlrkWHKXi4VNLDnX2Ww4mDnjC9WlnNJOcVV7nLyaa81Jcx0OhoMZQi5thcPmUFluikkFvpoKbt2Yrid2+Q0="/>
+            </field>
+        </field>
+    </record>
+</odoo>

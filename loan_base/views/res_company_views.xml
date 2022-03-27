@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_company_inter_change_inherit5_form">
+            <field name="name">res.company.form.inherit5</field>
+            <field name="inherit_id" ref="inter_company_rules.view_company_inter_change_inherit_form"/>
+            <field name="model">res.company</field>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="is_lender"/>
+                    <field name="is_borrower"/>
+                </field>
+                <field name="intercompany_user_id" position="after">
+                    <field name="create_la_when_lending_to_this_company"/>
+                    <field name="create_la_when_borrow_from_this_company"/>
+                    <field name="interest_accrual_postings_type"/>
+                </field>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

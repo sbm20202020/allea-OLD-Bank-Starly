@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.agreements</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_ref" position="after">
+                <field name="agreement_id"
+                       domain="['|',
+                                    '|', ('partner_1_id','=', partner_id),
+                                         ('partner_2_id','=', partner_id),
+                                         ('partner_3_id','=', partner_id)]"
+                       attrs="{'readonly':[('partner_id', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+    <!--Make invisible standard agreement-->
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.agreements</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_requisition.purchase_order_form_inherit"/>
+        <field name="arch" type="xml">
+            <field name="requisition_id" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!--<record id="purchase_order_tree_icode" model="ir.ui.view">-->
+    <!--    <field name="name">purchase.order.tree.icode</field>-->
+    <!--    <field name="model">purchase.order</field>-->
+    <!--    <field name="inherit_id" ref="purchase.purchase_order_tree"/>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--        <field name="name" position="after">-->
+    <!--            <field name="partner_ref"/>-->
+    <!--        </field>-->
+    <!--        <field name="invoice_status" position="attributes">-->
+    <!--            <attribute name="invisible">True</attribute>-->
+    <!--        </field>-->
+    <!--        <field name="state" position="after">-->
+    <!--            <field name="account_invoice_state"/>-->
+    <!--        </field>-->
+    <!--        <field name="partner_ref" position="after">-->
+    <!--            <field name="vendor_date" widget="date"/>-->
+    <!--        </field>-->
+    <!--        <field name="origin" position="attributes">-->
+    <!--            <attribute name="invisible">True</attribute>-->
+    <!--        </field>-->
+    <!--    </field>-->
+    <!--</record>-->
+
+    <!--<record id="view_purchase_order_filter_icode" model="ir.ui.view">-->
+    <!--    <field name="name">request.quotations.select.icode</field>-->
+    <!--    <field name="model">purchase.order</field>-->
+    <!--    <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--        <field name="name" position="after">-->
+    <!--            <field name="partner_ref"/>-->
+    <!--        </field>-->
+    <!--    </field>-->
+    <!--</record>-->
+</odoo>

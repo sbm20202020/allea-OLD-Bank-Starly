@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.view.inherit.approvals_allea</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="date_order" position="after">
+                <field name="vendor_date"/>
+            </field>
+            <field name="company_id" position="after">
+                <field name="approval_request_id" readonly="True"/>
+            </field>
+            <button name="button_unlock" position="after">
+                <button name="button_investigation" type="object" string="Under Investigation"
+                        states="purchase,sent to bank,authorized,paid"
+                        groups="purchase.group_purchase_manager"/>
+                <button name="button_sent_to_bank" type="object" string="Sent To Bank" states="purchase"
+                        groups="purchase.group_purchase_manager"/>
+                <button name="button_authorized" type="object" string="Authorized in Bank" states="sent to bank"
+                        groups="purchase.group_purchase_manager"/>
+                <button name="button_paid" type="object" string="Paid in Bank" states="authorized"
+                        groups="purchase.group_purchase_manager"/>
+                <button name="button_new" type="object" string="Sent to New" states="investigation"
+                        groups="purchase.group_purchase_manager"/>
+            </button>
+            <button name="button_cancel" position="attributes">
+                <attribute name="states">draft,to approve,sent,purchase,investigation</attribute>
+            </button>
+            <xpath expr="//button[@name='action_view_invoice'][1]" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', ('state', 'not in', ('purchase', 'done', 'sent to bank', 'authorized', 'paid')),
+                                  ('invoice_status', 'in', ('no', 'invoiced'))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_invoice'][2]" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', '|',
+                                  ('state', 'not in', ('purchase', 'done', 'sent to bank', 'authorized', 'paid')),
+                                  ('invoice_status', 'not in', ('no', 'invoiced')),
+                                  ('order_line', '=', [])]}</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+                <div class="o_attachment_preview"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_tree" model="ir.ui.view">
+        <field name="name">purchase.order.tree.view.inherit.approvals_allea</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status" position="after">
+                <field name="account_invoice_state" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_search" model="ir.ui.view">
+        <field name="name">purchase.order.select.inherit.approvals_allea</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="representative" position="after">
+                <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <!--Change default domain value in purchase.purchase_form_action-->
+    <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+        <field name="name">Purchase Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,calendar,activity</field>
+        <field name="view_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="domain">[('state', 'not in', ('draft', 'sent', 'to approve'))]</field>
+        <field name="search_view_id" ref="purchase.purchase_order_view_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a quotation
+            </p>
+            <p>
+                It will be converted into a purchase order.
+            </p>
+        </field>
+    </record>
+</odoo>

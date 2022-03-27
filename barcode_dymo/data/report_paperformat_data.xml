@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="report_paperformat_label_short" model="report.paperformat">
+            <field name="name">Dymo label short</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">12</field>
+            <field name="page_width">60</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">1</field>
+            <field name="margin_bottom">1</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">180</field>
+        </record>
+        <record id="report_paperformat_label_long" model="report.paperformat">
+            <field name="name">Dymo label long</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">29</field>
+            <field name="page_width">62</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">2</field>
+            <field name="margin_bottom">2</field>
+            <field name="margin_left">2</field>
+            <field name="margin_right">2</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">300</field>
+        </record>
+    </data>
+</odoo>

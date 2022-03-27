@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_approval_request_line,access_approval_request_line,model_approval_request_line,,1,1,1,1
+access_approval_request_line_user,access_approval_request_line,model_approval_request_line,approvals.group_approval_user,1,1,1,1
+access_approval_request_line_manager,access_approval_request_line,model_approval_request_line,approvals.group_approval_manager,1,1,1,1

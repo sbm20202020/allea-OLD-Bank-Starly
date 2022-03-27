@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="agreements_agreement_view_tree" model="ir.ui.view">
+        <field name="name">agreements.agreement.view.tree</field>
+        <field name="model">agreement</field>
+        <field name="arch" type="xml">
+            <tree string="Analytic Defaults">
+                <field name="number"/>
+                <field name="name"/>
+                <field name="agreement_type_id"/>
+                <field name="description"/>
+                <field name="company_id"/>
+                <field name="date_signed"/>
+                <field name="date_from"/>
+                <field name="date_end"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="agreements_agreement_view_form" model="ir.ui.view">
+        <field name="name">agreements.agreement.view.form</field>
+        <field name="model">agreement</field>
+        <field name="arch" type="xml">
+            <form string="Agreements">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="number" readonly="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="agreement_type_id"/>
+                            <field name="description"/>
+                            <field name="company_id"/>
+                            <field name="partner_1_id"/>
+                            <field name="partner_2_id"/>
+                            <field name="partner_3_id"/>
+                            <field name="responsible_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="date_signed" widget="date"/>
+                            <field name="date_from" widget="date"/>
+                            <field name="date_end" widget="date"/>
+                            <field name="prolongation"/>
+                            <field name="prolongation_period"/>
+                            <field name="amount"/>
+                            <field name="currency_id"/>
+                            <field name="comment"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Planned payments">
+                            <field string="La la la" name="agreement_lines_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="date_planned" widget="date"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="price_unit"/>
+                                    <field name="taxes_id" widget="many2many_tags"/>
+                                    <field name="price_tax"/>
+                                    <field name="price_subtotal"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right">
+                                <field name="amount_untaxed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="amount_total"/>
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                            <div class="oe_clear"/>
+                        </page>
+                        <page string="Actual payments">
+                            <field name="agreement_actual_ids">
+                                <tree>
+                                    <field name="order_id"/>
+                                    <field name="date_planned" widget="date"/>
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                    <field name="price_unit"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom"/>
+                                    <field name="price_subtotal"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="o_attachment_preview"/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="agreements_agreement_action_count" model="ir.actions.act_window">
+        <field name="name">Agreements</field>
+        <field name="res_model">agreement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', '|', ('partner_1_id', '=', active_id), ('partner_2_id', '=', active_id),
+                              ('partner_3_id', '=', active_id)]</field>
+    </record>
+
+    <record id="agreements_agreement_view_tree" model="ir.ui.view">
+        <field name="name">agreements.agreement.view.tree</field>
+        <field name="model">agreement</field>
+        <field name="arch" type="xml">
+            <tree string="Analytic Defaults">
+                <field name="number" optional="show"/>
+                <field name="name" optional="show"/>
+                <field name="agreement_type_id" optional="show"/>
+                <field name="description" optional="show"/>
+                <field name="company_id" optional="show"/>
+                <field name="partner_1_id" optional="show"/>
+                <field name="partner_2_id" optional="show"/>
+                <field name="partner_3_id" optional="show"/>
+                <field name="date_signed" optional="show"/>
+                <field name="date_from" optional="show"/>
+                <field name="date_end" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="agreements_agreement_action" model="ir.actions.act_window">
+        <field name="name">Agreement Main Action</field>
+        <field name="res_model">agreement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="agreements_agreement_view_tree"/>
+    </record>
+
+    <menuitem id="res_partner_menu_agreeements"
+        name="Agreements"
+        action="agreements_agreement_action"
+        parent="contacts.res_partner_menu_contacts"
+        sequence="1"/>
+</odoo>

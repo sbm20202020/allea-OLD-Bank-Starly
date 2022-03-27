@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="account_bank_statement_import_filters" model="ir.ui.view">
+        <field name="name">Upload Bank Statements Journal and Filters</field>
+        <field name="model">account.bank.statement.import</field>
+        <field name="inherit_id" ref="account_bank_statement_import.account_bank_statement_import_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='attachment_ids']" position="after">
+                <group>
+                    <field name="journal_id" domain="[('type', '=', 'bank')]" context="{'default_type':'bank'}"
+                           readonly="1"/>
+                    <field name="date_filter_start"/>
+                    <field name="date_filter_end"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

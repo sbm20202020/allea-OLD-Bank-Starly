@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_reports.account_financial_unaffected_earnings0" model="account.financial.html.report.line">
+            <field name="name">Retained Earnings</field>
+        </record>
+        <record id="account_reports.account_financial_retained_earnings0" model="account.financial.html.report.line">
+            <field name="name">Share Capital and reserves</field>
+        </record>
+    </data>
+</odoo>

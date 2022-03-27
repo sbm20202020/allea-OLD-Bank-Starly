@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_draft">
+        <field name="name">DRAFT</field>
+        <field name="on_change">1</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_validated">
+        <field name="name">VALIDATED</field>
+        <field name="on_change">1</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_provided">
+        <field name="name">PROVIDED</field>
+        <field name="on_change">1</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_repaid">
+        <field name="name">REPAID</field>
+        <field name="on_change">1</field>
+        <field name="sequence">40</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_written_off">
+        <field name="name">WRITTEN-OFF</field>
+        <field name="on_change">1</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_zeroed_out">
+        <field name="name">ZEROED OUT</field>
+        <field name="on_change">1</field>
+        <field name="sequence">60</field>
+    </record>
+
+    <record model="account.loan.agreement.stage" id="loan_agreement_stage_removed_from_computation">
+        <field name="name">REMOVED FROM COMPUTATION</field>
+        <field name="on_change">1</field>
+        <field name="sequence">70</field>
+    </record>
+</odoo>

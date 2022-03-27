@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="account_move_filter_lines_form">
+            <field name="name">account_move_filter_lines</field>
+            <field name="model">account.move.statement.filter_lines</field>
+            <field name="arch" type="xml">
+                <form string="Filter lines">
+                    <separator string="Select filter period:" colspan="4" />
+                    <group>
+                        <field name="date_filter_start" class="oe_inline"/>
+                        <field name="date_filter_end" class="oe_inline"/>
+                    </group>
+                    <footer>
+                        <button name="filter_lines" string="Filter" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window
+            name="Filter lines"
+            res_model="account.move.statement.filter_lines"
+            src_model="account.move.statement.import"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_move_statement_filter_lines" />
+    </data>
+</odoo>

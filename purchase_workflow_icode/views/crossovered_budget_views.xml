@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crossovered_budget_view_pivot" model="ir.ui.view">
+            <field name="name">crossovered.budget.view.pivot</field>
+            <field name="model">crossovered.budget</field>
+            <field name="arch" type="xml">
+                <pivot string="Budgets">
+                </pivot>
+            </field>
+        </record>
+
+        <record id="account_budget.act_crossovered_budget_view" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,pivot</field>
+        </record>
+
+        <record id="action_crossovered_budget_view_pivot" model="ir.actions.act_window.view">
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="crossovered_budget_view_pivot"/>
+            <field name="act_window_id" ref="account_budget.act_crossovered_budget_view"/>
+        </record>
+    </data>
+</odoo>

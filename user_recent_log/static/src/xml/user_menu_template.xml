@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="UserMenu.Actions">
+        <t t-jquery=".divider" t-operation="before">
+            <li><a href="#" data-menu="activity">Recent Logs</a></li>
+        </t>
+    </t>
+</templates>

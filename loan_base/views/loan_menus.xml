@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+            id="menu_loan_root"
+            name="Loans"
+            web_icon="loan_base,static/description/icon.png"
+            sequence="10"
+    />
+
+    <!--<MASTER DATA MENU>-->
+    <menuitem
+            id="menu_loan_master_data"
+            name="Master Data"
+            parent="menu_loan_root"
+            sequence="0"
+    />
+    <menuitem
+            id="menu_loan_loan_agreements"
+            name="Loan Agreements"
+            parent="menu_loan_master_data"
+            action="account_loan_agreement_action"
+            sequence="1"
+    />
+    <menuitem
+            id="menu_loan_lenders"
+            name="Lenders"
+            parent="menu_loan_master_data"
+            action="partner_action_lenders"
+            sequence="2"
+    />
+    <menuitem
+            id="menu_loan_borrowers"
+            name="Borrowers"
+            parent="menu_loan_master_data"
+            action="partner_action_borrowers"
+            sequence="3"
+    />
+
+    <!--</MASTER DATA MENU>-->
+    <!--<CONFIGURATION MENU>-->
+    <menuitem
+            id="menu_loan_configuration"
+            name="Configuration"
+            parent="menu_loan_root"
+            sequence="6"
+    />
+    <menuitem
+            id="menu_loan_configuration_settings"
+            name="Settings"
+            parent="menu_loan_configuration"
+            action="account.action_account_config"
+            sequence="0"
+            groups="base.group_system"
+    />
+    <menuitem
+            id="menu_loan_configuration_loan_agreement_stages"
+            name="Loan Agreement Stages"
+            parent="menu_loan_configuration"
+            action="loan_agreement_stages_action"
+            sequence="3"
+    />
+
+    <menuitem
+            id="menu_loan_configuration_loan_rates"
+            name="Loan Rates"
+            parent="menu_loan_configuration"
+            action="account_loan_rate_action"
+            sequence="5"
+    />
+    <!--</CONFIGURATION MENU>-->
+
+    <!--<ACCOUNT MENU ITEMS>-->
+    <menuitem
+            id="menu_account_loan"
+            name="Loans"
+            parent="account_accountant.menu_accounting"
+            action="account_loan_agreement_action"
+            sequence="3"
+    />
+    <!--</ACCOUNT MENU ITEMS>-->
+</odoo>

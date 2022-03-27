@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                string="Lot BarCode short"
+                id="action_report_lot_barcode_short"
+                model="stock.production.lot"
+                report_type="qweb-pdf"
+                name="barcode_dymo.report_lot_barcode_short"
+                file="barcode_dymo.report_lot_barcode_short"
+                print_report_name="'Lot-Serial-short - %s' % object.name"
+        />
+        <report
+                string="Lot BarCode long"
+                id="action_report_lot_barcode_long"
+                model="stock.production.lot"
+                report_type="qweb-pdf"
+                name="barcode_dymo.report_lot_barcode_long"
+                file="barcode_dymo.report_lot_barcode_long"
+                print_report_name="'Lot-Serial-long - %s' % object.name"
+        />
+        <report
+                string="Products Labels Short"
+                id="action_report_product_label_short"
+                model="product.template"
+                report_type="qweb-pdf"
+                name="barcode_dymo.report_product_label_short"
+                file="barcode_dymo.report_product_label_short"
+                print_report_name="'Products Labels short - %s' % object.name"
+        />
+        <report
+                string="Products Labels Long"
+                id="action_report_product_label_long"
+                model="product.template"
+                report_type="qweb-pdf"
+                name="barcode_dymo.report_product_label_long"
+                file="barcode_dymo.report_product_label_long"
+                print_report_name="'Products Labels long - %s' % object.name"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+        <record id="view_users_form_generate_login_link_button" model="ir.ui.view">
+        <field name="name">generate.login.link.button</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="sequence">999</field>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button
+                        string="Generate Login Link"
+                        name="modal_field_for_login_link"
+                        type="object"
+                        groups="base.group_no_one"
+                        class = "oe_read_only"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="modal_view_for_login_management" model="ir.ui.view">
+        <field name="name">login.url</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form groups="base.group_no_one">
+                <script>
+                    function fallbackCopyTextToClipboard(text) {
+                    var textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+
+                    try {
+                    var successful = document.execCommand('copy');
+                    var msg = successful ? 'successful' : 'unsuccessful';
+                    console.log('Fallback: Copying text command was ' + msg);
+                    } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                    }
+
+                    document.body.removeChild(textArea);
+                    }
+                    function copyTextToClipboard(text) {
+                    if (!navigator.clipboard) {
+                    fallbackCopyTextToClipboard(text);
+                    return;
+                    }
+                    navigator.clipboard.writeText(text).then(function() {
+                    console.log('Async: Copying to clipboard was successful!');
+                    }, function(err) {
+                    console.error('Async: Could not copy text: ', err);
+                    });
+                    }
+
+                    var custom_login_link = document.querySelector('.copy_login_link_btn');
+                    var text = document.querySelector('.custom_login_link').textContent;
+
+                    copy_login_link_btn.addEventListener('click', function(event) {
+                    copyTextToClipboard(text);
+                    })
+                </script>
+                <field string="Token birth time" name="login_for_token_birth_time" attrs="{'invisible': 1}"/>
+                <group colspan="4" col="12">
+                    <label class="modal-title" for="login_for_link" colspan="2"/>
+                    <field name="login_for_link" class="custom_login_link" widget="url" readonly="1" colspan="9"
+                           nolabel="1"/>
+                    <button id="copy_login_link_btn" class="btn-primary copy_login_link_btn oe_inline" type="object"
+                            name="button_copy">COPY
+                    </button>
+                </group>
+                <footer class="oe_edit_only">
+                    <button string="REFRESH"
+                            name="set_login_url"
+                            id="set_login_url"
+                            type="object"
+                            class="btn-primary oe_left"
+                    />
+                    <button string="DONE"
+                            special="cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

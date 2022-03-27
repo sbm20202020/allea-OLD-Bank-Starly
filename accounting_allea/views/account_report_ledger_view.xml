@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!--<template id="assets_backend" name="web_widget_radio_tree" inherit_id="web.assets_backend">-->
+            <!--<xpath expr="." position="inside">-->
+                <!--<script type="text/javascript" src="/account_icode/static/src/js/account.js"></script>-->
+            <!--</xpath>-->
+        <!--</template>-->
+
+    <!--Wizard view-->
+    <record id="account_report_general_ledger_view_accounts" model="ir.ui.view">
+        <field name="name">account.report.general.ledger.inherit.report.accounts</field>
+        <field name="model">account.report.general.ledger</field>
+        <field name="inherit_id" ref="account.account_report_general_ledger_view"/>
+        <!--or account_common_report_view-->
+        <field name="arch" type="xml">
+            <data>
+                <field name="journal_ids" position="after">
+                    <field name="account_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="company_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                </field>
+            </data>
+        </field>
+    </record>
+
+    <!--Full report view-->
+    <template id="search_template_extra_analitycs_options_sova" inherit_id="account_reports.search_template_analytic">
+            <xpath expr="//ul" position="inside">
+               <li style='margin-left: 10px; margin-right: 10px;'>
+                <b>Chart Accounts</b><br />
+                <select class="js_account_reports_analytic_auto_complete" data-filter="chart_accounts" multiple="multiple" style="min-width: 100px;">
+                    <t t-foreach="chart_accounts" t-as="a">
+                        <option t-att-value="a[0]"><t t-esc="a[1]" /></option>
+                    </t>
+                </select>
+            </li>
+            <li class="divider"></li>
+            </xpath>
+
+    </template>
+
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+user_hr_expense_taxline,user_hr_expense_taxline,expense_icode.model_hr_expense_taxline,hr_expense.group_hr_expense_user,1,1,1,1

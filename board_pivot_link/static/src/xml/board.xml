@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-extend="DashBoard.action">
+        <t t-jquery="span.oe_header_txt" t-operation="after">
+            <span class='fa fa-download oe_open' t-if="action.attrs.view_mode == 'pivot'"/>
+        </t>
+    </t>
+
+</template>

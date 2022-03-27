@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_order_sent_to_bank_view" model="ir.ui.view">
+        <field name="name">Send to bank 222</field>
+        <field name="model">export.eurobank.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Cancel dfdf">
+                <sheet>
+                    <group>
+                        <field name="data" readonly="1" filename="filename"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="cancel_email" string="OK" type="object" class="btn-primary" default_focus="1"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="purchase_order_sent_to_bank_wizard" model="ir.actions.act_window">
+        <field name="name">Send to bank</field>
+        <field name="res_model">export.eurobank.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="purchase_order_sent_to_bank_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <act_window
+            id="action_todo_wizard"
+            name="Export to Eurobank"
+            res_model="export.eurobank.wizard"
+            target="new"
+            binding_model="purchase.order"
+            binding_views="tree"
+    />
+    <!--view_mode="form"-->
+</odoo>

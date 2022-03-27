@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_crossovered_budget_line_form_icode" model="ir.ui.view">
+            <field name="name">crossovered.budget.line.form.icode</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <button type="object" name="action_open_budget_entries" string="Analytic Entries"
+                                            icon="fa-arrow-circle-o-right"/>
+                </field>
+            </field>
+        </record>
+
+    <record id="view_crossovered_budget_line_tree" model="ir.ui.view">
+        <field name="name">crossovered.budget.lines.view.tree.inherit.account_budget_allea</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="general_budget_id" position="attributes">
+                <attributes name="optional">show</attributes>
+            </field>
+            <field name="analytic_account_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="company_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="date_from" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="date_to" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="paid_date" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="planned_amount" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="practical_amount" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="theoritical_amount" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="percentage" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="crossovered_budget_lines_view_pivot" model="ir.ui.view">
+        <field name="name">crossovered.budget.lines.view.pivot</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="arch" type="xml">
+            <pivot string="Budgets">
+                <field name="practical_amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <!--<record id="action_crossovered_budget_lines_view_pivot" model="ir.actions.act_window.view">-->
+    <!--    <field name="sequence" eval="3"/>-->
+    <!--    <field name="view_mode">pivot</field>-->
+    <!--    <field name="view_id" ref="crossovered_budget_lines_view_pivot"/>-->
+    <!--    <field name="act_window_id" ref="account_budget.act_crossovered_budget_lines_view"/>-->
+    <!--</record>-->
+</odoo>

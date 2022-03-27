@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record model="account.loan.rate" id="loan_rate_5percent">
+        <field name="name">5%</field>
+        <field name="value">0.05</field>
+    </record>
+    <record model="account.loan.rate" id="loan_rate_4percent">
+        <field name="name">4%</field>
+        <field name="value">0.04</field>
+    </record>
+    <record model="account.loan.rate" id="loan_rate_3percent">
+        <field name="name">3%</field>
+        <field name="value">0.03</field>
+    </record>
+</odoo>

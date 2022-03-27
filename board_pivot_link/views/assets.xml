@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="assets_backend" name="icode_js_inherit" inherit_id="web.assets_backend">
+            <xpath expr="//script[@src='/board/static/src/js/dashboard.js']" position="replace">
+                <script type="text/javascript" src="/board_pivot_link/static/src/js/dashboard.js"/>
+            </xpath>
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/board_pivot_link/static/src/js/pivot_controller.js"></script>
+                <script type="text/javascript" src="/board_pivot_link/static/src/js/pivot_view.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

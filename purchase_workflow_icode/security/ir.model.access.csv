@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_order_requester,purchase.order requester,model_purchase_order,purchase.group_purchase_user,1,1,1,1
+access_account_budget_post_requester,account.budget.post requester,model_account_budget_post,purchase.group_purchase_user,1,0,0,0
+access_crossovered_budget_requester,crossovered.budget requester,model_crossovered_budget,purchase.group_purchase_user,1,0,0,0
+access_account_analytic_account_requester,account.analytic.account requester,model_account_analytic_account,purchase.group_purchase_user,1,0,0,0
+access_crossovered_budget_lines_requester,crossovered.budget.lines requester,account_budget.model_crossovered_budget_lines,purchase.group_purchase_user,1,0,0,0
+access_product_product_requester,product.product requester,product.model_product_product,purchase.group_purchase_user,1,0,0,0
+access_product_template_requester,product.template requester,product.model_product_template,purchase.group_purchase_user,1,0,0,0
+access_purchase_order_line_requester,purchase.order.line requester,purchase.model_purchase_order_line,purchase.group_purchase_user,1,1,0,0
+purchase.access_account_invoice_purchase,account_invoice purchase,account.model_account_invoice,purchase.group_purchase_user,1,0,0,0
+access_purchase_order_approval,purchase.order approval,model_purchase_order,purchase_workflow_icode.group_purchase_approval,1,1,1,1
+purchase.access_account_invoice_purchase_manager,account_invoice purchase manager,account.model_account_invoice,purchase.group_purchase_manager,1,1,1,1
+access_stock_picking_type_treasurer,stock.picking.type treasurer,stock.model_stock_picking_type,purchase.group_purchase_manager,1,1,1,1

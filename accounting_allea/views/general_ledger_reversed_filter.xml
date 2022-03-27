@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <template id="search_template_extra_options_sova_without_reversed_lines" inherit_id="account_reports.search_template_extra_options">
+            <xpath expr="//ul" position="inside">
+            </xpath>
+        </template>
+    </data>
+</odoo>

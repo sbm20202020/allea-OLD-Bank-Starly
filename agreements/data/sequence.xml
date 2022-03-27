@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="sequence_agreements_allea_gp" model="ir.sequence">
+        <field name="name">Allea global properties agreements</field>
+        <field name="code">agreement</field>
+        <field name="company_id">15</field>
+        <field name="prefix">ALLEAGP/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_allea_h" model="ir.sequence">
+        <field name="name">Allea holding agreements</field>
+        <field name="code">agreement</field>
+        <field name="company_id">10</field>
+        <field name="prefix">ALLEAH/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_anolia" model="ir.sequence">
+        <field name="name">Anolia holdings agreements</field>
+        <field name="code">agreement</field>
+        <field name="company_id">14</field>
+        <field name="prefix">ANOLIA/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_ellipse" model="ir.sequence">
+        <field name="name">Ellipse properties agreements</field>
+        <field name="code">agreement</field>
+        <field name="company_id">17</field>
+        <field name="prefix">ELLIPSE/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_emilisame" model="ir.sequence">
+        <field name="name">Emilisame investments sequence</field>
+        <field name="code">agreement</field>
+        <field name="company_id">7</field>
+        <field name="prefix">EMILISAME/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_nilufar" model="ir.sequence">
+        <field name="name">Nilufar limited sequence</field>
+        <field name="code">agreement</field>
+        <field name="company_id">5</field>
+        <field name="prefix">NILUFAR/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements_vlanik" model="ir.sequence">
+        <field name="name">Vlanik sequence</field>
+        <field name="code">agreement</field>
+        <field name="company_id">8</field>
+        <field name="prefix">VLANIK/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+    <record id="sequence_agreements" model="ir.sequence">
+        <field name="name">Default sequence</field>
+        <field name="code">agreement.default</field>
+        <field name="prefix">AGGR/%(year)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+    </record>
+</odoo>

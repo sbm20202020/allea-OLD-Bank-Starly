@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Add field employee_id on form-->
+        <record id="view_budget_post_form_inherit_icode" model="ir.ui.view">
+            <field name="name">account.budget.post.form.inherit.icode</field>
+            <field name="model">account.budget.post</field>
+            <field name="inherit_id" ref="account_budget.view_budget_post_form"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="employee_id" options="{'no_create': True}" domain="[('user_id', '!=', False)]"/>
+                </field>
+                <xpath expr="//field[@name='account_ids']//field[@name='name']" position="after">
+                    <field name="company_id" options="{'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

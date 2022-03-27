@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_lot_barcode_long">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="text-center" style="font-size: 11px" t-field="o.product_id"/>
+                    <div class="text-center" style="font-size: 11px" t-field="o.name"/>
+                    <img style="height: 35px; width: 100%" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',o.name, 1000, 100)"/>
+                    <center>
+                        <img class="image" style="height: 20px; width: auto" t-att-src="'data:image/png;base64,%s' % to_text(res_company.barcode_logo)"/>
+                    </center>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+		<record id="bscfpl_wizard_form" model="ir.ui.view">
+			<field name="name">account_report_bscfpl_wizard</field>
+			<field name="model">account.report.bscfpl_wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="BS CF PL Report">
+					<sheet>
+						<group>
+							<group>
+                                <field name="comparison_filter"/>
+                                <!--<field name="comparison_date_from"-->
+                                       <!--attrs="{'invisible': [('comparison_filter','=','custom')]}"/>-->
+                                <!--<field name="comparison_date_to"-->
+                                       <!--attrs="{'invisible': [('comparison_filter','=','custom')]}"/>-->
+                                <field name="date_filter"/>
+                                <field name="comparison_number_period"/>
+							</group>
+						</group>
+						<group>
+							<field name="file_name" invisible="1"/>
+							<field name="file_save" filename="file_name"/>
+						</group>
+					</sheet>
+
+					<footer>
+						<button string="Generate BS CF PL Report xlsx file" type="object" name="button_export" class="oe_highlight"/>
+						or
+						<button string="Close" special="cancel"/>
+					</footer>
+
+				</form>
+			</field>
+		</record>
+
+		<record id="bscfpl_report_action" model="ir.actions.act_window">
+			<field name="name">BS CF PL Report</field>
+			<field name="res_model">account.report.bscfpl_wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="bscfpl_wizard_form"/>
+			<field name="target">new</field>
+		</record>
+
+		<!-- TODO: добавить группу для которой доступен данный пункт меню <Pavel 2018-08-30> -->
+        <menuitem id="account_bscfpl_report_menu"
+				  parent="account.account_reports_legal_statements_menu"
+				  action="bscfpl_report_action"
+				  name="BS CF PL Report"
+				  groups="base.group_no_one"
+		/>
+
+	</data>
+</odoo>

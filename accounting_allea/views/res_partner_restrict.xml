@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="contacts.action_contacts" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="domain" eval="['|', ('customer', '=', True), ('supplier', '=', True)]" />
+        </record>
+    </data>
+</odoo>

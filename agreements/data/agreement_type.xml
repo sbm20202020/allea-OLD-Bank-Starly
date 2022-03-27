@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="agreement_type_loan" model="agreement.type">
+        <field name="name">Loan agreement</field>
+    </record>
+    <record id="agreement_type_consulting" model="agreement.type">
+        <field name="name">Consulting agreement</field>
+    </record>
+    <record id="agreement_type_sales_purchase" model="agreement.type">
+        <field name="name">Sales and purchase agreement</field>
+    </record>
+    <record id="agreement_type_shareholder" model="agreement.type">
+        <field name="name">Shareholder agreement</field>
+    </record>
+    <record id="agreement_type_etc" model="agreement.type">
+        <field name="name">etc</field>
+    </record>
+    <record id="agreement_type_other" model="agreement.type">
+        <field name="name">Other</field>
+    </record>
+</odoo>

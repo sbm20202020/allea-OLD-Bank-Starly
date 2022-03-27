@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--<record id="view_partner_form_loan_inherit" model="ir.ui.view">-->
+        <!--    <field name="name">res.partner.form.loan_inherit</field>-->
+        <!--    <field name="model">res.partner</field>-->
+        <!--    <field name="priority" eval="1"/>-->
+        <!--    <field name="inherit_id" ref="base.view_partner_form"/>-->
+        <!--    <field name="arch" type="xml">-->
+        <!--        <field name="lang" position="after">-->
+        <!--            <field name="is_lender"/>-->
+        <!--            <field name="is_borrower"/>-->
+        <!--        </field>-->
+        <!--    </field>-->
+        <!--</record>-->
+
+        <!-- Partner -->
+        <record id="partner_view_tree" model="ir.ui.view">
+            <field name="name">res.partner.view.tree</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Contacts">
+                    <field name="display_name" string="Name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--LENDERS-->
+        <record id="partner_action_lenders" model="ir.actions.act_window">
+            <field name="name">Lenders</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                                          (0, 0, {'view_mode': 'tree', 'view_id': ref('loan_base.partner_view_tree')}),
+                                          (0, 0, {'view_mode': 'form', 'view_id': ref('base.view_partner_form')})]"/>
+            <field name="domain">[('is_lender', '=', True)]</field>
+        </record>
+        <!--/LENDERS-->
+
+        <!--BORROWERS-->
+        <record id="partner_action_borrowers" model="ir.actions.act_window">
+            <field name="name">Borrowers</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                                          (0, 0, {'view_mode': 'tree', 'view_id': ref('loan_base.partner_view_tree')}),
+                                          (0, 0, {'view_mode': 'form', 'view_id': ref('base.view_partner_form')})]"/>
+            <field name="domain">[('is_borrower', '=', True)]</field>
+        </record>
+        <!--/BORROWERS-->
+    </data>
+</odoo>

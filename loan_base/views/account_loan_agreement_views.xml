@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- MENU LOAN AGREEMENTS CLICK ACTION -->
+    <record id="account_loan_agreement_action" model="ir.actions.act_window">
+        <field name="name">Loan Agreements</field>
+        <field name="res_model">account.loan.agreement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--TREE-->
+    <record id="account_loan_agreement_view_tree" model="ir.ui.view">
+        <field name="name">account.loan.agreement.view.tree</field>
+        <field name="model">account.loan.agreement</field>
+        <field name="arch" type="xml">
+            <tree string="Loan Agreements">
+                <field name="name" optional="show"/>
+                <field name="loan_type" optional="show"/>
+                <field name="agreement_date" optional="show"/>
+                <field name="loan_rate_id" optional="show"/>
+                <field name="loan_currency_id" optional="show"/>
+                <field name="loan_value" optional="show"/>
+                <field name="principal_outstanding" optional="show"/>
+                <field name="loan_principal_account_id" string="Principal Balance on Account" optional="show"/>
+                <field name="interest_outstanding" optional="show"/>
+                <field name="accrued_interest_account_id" string="Interest Balance on Account" optional="show"/>
+                <field name="total_outstanding" optional="show"/>
+                <field name="stage_id" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--FORM-->
+    <record id="account_loan_agreement_view_form" model="ir.ui.view">
+        <field name="name">account.loan.agreement.view.form</field>
+        <field name="model">account.loan.agreement</field>
+        <field name="arch" type="xml">
+            <form string="Loan Agreements">
+                <header>
+                    <button string="Validate" name="button_state_validated" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('stage_id', '!=', %(loan_base.loan_agreement_stage_draft)d)]}"/>
+                    <button string="Write-off" name="button_state_written_off" type="object"/>
+                    <button string="Zero Out" name="button_state_zeroed_out" type="object"/>
+                    <button string="Remove From Computation" name="button_state_removed_from_computation"
+                            type="object"/>
+                    <field name="stage_id" widget="statusbar" clickable="False"
+                           options="{'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <group colspan="6" col="4">
+                        <field name="name"/>
+                        <field name="loan_type"/>
+                        <field name="lender_company_pid"
+                               attrs="{'readonly': [('loan_type', '!=', 'payable')]}"/>
+                        <field name="agreement_date"/>
+                        <field name="borrower_company_pid"
+                               attrs="{'readonly': [('loan_type', '!=', 'receivable')]}"/>
+                        <field name="company_currency_id" readonly="True"/>
+                        <field name="opposite_loan_agreement_id" groups="base.group_no_one"/>
+                        <field name="company_id" groups='base.group_no_one'/>
+                        <field name="rule_id" groups='base.group_no_one'/>
+                        <field name="journal_type" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Loan conditions">
+                            <group colspan="6" col="4">
+                                <field name="loan_value"/>
+                                <field name="expected_drawdown_date"/>
+                                <field name="loan_currency_id"/>
+                                <field name="payment_start_date"/>
+                                <field name="loan_rate_id"/>
+                                <field name="planned_settlement_date"
+                                       attrs="{'readonly': [('settlement_schedule', '=', 'fixed')]}"/>
+                                <label for="loan_term"/>
+                                <div><field name="loan_term"
+                                            attrs="{'readonly': [('settlement_schedule', '=', 'free')]}"
+                                            style="width: 25px"/> months</div>
+                                <field name="drawdown_date" groups="base.group_no_one"/>
+                            </group>
+                            <separator colspan="6"/>
+                            <group colspan="6" col="4">
+                                <field name="interest_rate_type" colspan="2"/>
+                                <field name="is_include_first_day" colspan="2"/>
+                                <field name="settlement_schedule" colspan="2"/>
+                                <field name="day_count_convention" colspan="2"/>
+                                <field name="interest_calculation_parameters" colspan="2"/>
+                                <field name="interest_accrual_dates" colspan="2"/>
+                            </group>
+                            <button name="button_constrains_loan_agreement_id" string="is_repaid" type="object"
+                                    groups="base.group_no_one"/>
+                        </page>
+                        <page string="Rates History">
+                            <field name="loan_rate_line_ids" readonly="1" nolabel="1" mode="tree"
+                                   context="{'agreement_id': active_id, 'default_agreement_id': active_id}">
+                                <tree create="0" delete="0">
+                                    <field name="agreement_id" invisible="1"/>
+                                    <field name="rate_id"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Accounts">
+                            <group>
+                                <field name="bank_account_id"/>
+                                <field name="transactions_journal_id"/>
+                                <field name="unr_exchange_gain_loss_journal_id"/>
+                                <field name="loan_principal_account_id"/>
+                                <field name="accrued_interest_account_id"/>
+                                <field name="interest_receivable_account_id"
+                                       attrs="{'invisible': [('loan_type', '!=', 'receivable' )]}"/>
+                                <field name="interest_payable_account_id"
+                                       attrs="{'invisible': [('loan_type', '!=', 'payable')]}"/>
+                                <field name="unr_exchange_gain_account_id"/>
+                                <field name="unr_exchange_loss_account_id"/>
+                            </group>
+                            <button string="CREATE ACCOUNTS" name="button_create_accounts" type="object"
+                                    class="oe_highlight"/>
+                        </page>
+                        <page string="Repayment Schedule" attrs="{'invisible': [('settlement_schedule', '!=', 'fixed')]}">
+                            <field name="repayment_line_ids" readonly="1" nolabel="1" mode="tree"
+                                   context="{'loan_agreement_id': active_id, 'default_loan_agreement_id': active_id}">
+                                <tree create="0" delete="0" sum_field="total_payment">
+                                    <field name="loan_agreement_id" invisible="1"/>  <!--account.loan.agreement-->
+                                    <field name="date" count='Total'/>  <!--Date-->
+                                    <field name="principal" sum="Total"/>  <!--Principal-->
+                                    <field name="interest" sum="Total"/>  <!--Interest-->
+                                    <field name="total_payment" sum="Total"/>  <!--Total Payment-->
+                                </tree>
+                            </field>
+                            <button name="button_create_activity" class='btn-primary oe_right'
+                                    string="Add Schedule in My Calendar" type="object"/>
+                        </page>
+                        <page string="Current Payments">
+                            <button name="button_get_moves" string="Get Historical Data" type="object" class="btn-primary oe_right"/>
+                            <field name="payment_line_ids" nolabel="1" mode="tree"
+                                   context="{'loan_agreement_id': active_id, 'default_loan_agreement_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="loan_agreement_id" invisible="1"/>
+                                    <field name="loan_currency_id" invisible="1"/>
+                                    <field name="company_currency_id" invisible="1"/>
+                                    <field name="date" string="Payment Date" optional="show"/>
+                                    <field name="accrual_in_company_currency" optional="show"/>
+                                    <field name="accrual_in_loan_currency" optional="show"/>
+                                    <field name="repayment_of_the_loan_body_in_the_company_currency" sum="Total"/>
+                                    <field name="repayment_of_the_loan_body_in_the_loans_currency" sum="Total"/>
+                                    <field name="days" optional="show"/>
+                                    <field name="loan_body_balance_in_company_currency" optional="show"/>
+                                    <field name="loan_body_balance_in_loan_currency_beauty" optional="show"/>
+                                    <field name="exchange_difference_loan_body" optional="show"/>
+                                    <field name="exchange_difference_loan_interest" optional="show"/>
+                                    <field name="loan_rate_id" optional="show"/>
+                                    <field name="accrued_interest_in_company_currency" sum="Total"/>
+                                    <field name="accrued_interest_in_loan_currency" sum="Total"/>
+                                    <field name="paid_interest_in_company_currency" sum="Total"/>
+                                    <field name="paid_interest_in_loan_currency" sum="Total"/>
+                                    <field name="interest_balance_in_company_currency" optional="show"/>
+                                    <field name="interest_balance_in_loan_currency" optional="show"/>
+                                    <field name="loan_amount_in_company_currency" optional="show"/>
+                                    <field name="loan_amount_in_loan_currency" optional="show"/>
+                                    <field name="payment_currency" optional="show"/>
+                                    <field name="course1" optional="show"/>
+                                    <field name="course2" optional="show"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Interest Outstanding">
+                            <group string="Computation">
+                                <label for="interest_accrual_date"/>
+                                <div>
+                                    <field name="interest_accrual_date_type" class="oe_inline"/>
+                                    <span style="padding-left:10px"/>
+                                    <field name="interest_accrual_date_custom" class="oe_inline"
+                                           attrs="{'invisible': [('interest_accrual_date_type', '!=', 'custom')]}"/>
+                                </div>
+                                <field name="interest_outstanding_on_date"/>
+                                <field name="principal_outstanding_on_date"/>
+                                <field name="total_outstanding_on_date"/>
+                            </group>
+                            <button name="button_compute_interest_outstanding_on_date" string="Compute" type="object"
+                                    class="btn-primary"/>
+                            <group string="Entries Posting">
+                                <label for="" string="Entries Posting Period"/>
+                                <div>
+                                    <label for="entries_posting_period_from" string="from:"/>
+                                    <field name="entries_posting_period_from" class="oe_inline"/>
+                                    <span style="padding-left:10px"/>
+                                    <label for="entries_posting_period_to" string="to:"/>
+                                    <field name="entries_posting_period_to" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group class="oe_right">
+                                <button name="button_lunch_entries_posting_period" string="LAUNCH" type="object"
+                                        class="btn-primary oe_right" attrs="{'invisible': [('stage_id', '!=', %(loan_base.loan_agreement_stage_provided)d)]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--FILTER-->
+    <record id="view_account_loan_agreement_filter" model="ir.ui.view">
+        <field name="name">account.loan.agreement.filter</field>
+        <field name="model">account.loan.agreement</field>
+        <field name="arch" type="xml">
+            <search string="Search Loan Agreement">
+                <field name="name"/>
+                <filter string="Receivable" name="is_receivable" domain="[('loan_type', '=', 'receivable')]"/>
+                <filter string="Payable" name="is_payable" domain="[('loan_type', '=', 'payable')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Loan Type" name='loan_type' context="{'group_by':'loan_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

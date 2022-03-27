@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Added custom agreement to purchase order form-->
+        <record id="purchase_order_form_icode" model="ir.ui.view">
+            <field name="name">purchase.order.form.icode</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="button_unlock" position="after">
+                    <button name="button_sent_to_bank" type="object" string="Sent To Bank" states="purchase, done" groups="purchase.group_purchase_manager"/>
+                    <button name="button_authorized" type="object" string="Authorized in Bank" states="sent to bank" groups="purchase.group_purchase_manager"/>
+                    <button name="button_paid" type="object" string="Paid in Bank" states="authorized" groups="purchase.group_purchase_manager"/>
+                </button>
+                <button name="button_confirm" position="attributes">
+                    <attribute name="groups">purchase_workflow_icode.group_purchase_approval</attribute>
+                </button>
+                <field name="partner_ref" position="after">
+                    <field name="agreement_id"
+                           domain="['|',
+                                    '|', ('partner_1_id','=', partner_id),
+                                         ('partner_2_id','=', partner_id),
+                                         ('partner_3_id','=', partner_id)]"
+                           attrs="{'readonly':[('partner_id', '=', False)]}"/>
+                </field>
+                <button name="action_view_invoice" position="attributes">
+                    <attribute name="context">{'default_reference': partner_ref, 'default_company_id': company_id, 'default_date_invoice': vendor_date, 'default_currency_id': currency_id}</attribute>
+                </button>
+                <field name="date_order" position="after">
+                    <field name="vendor_date"/>
+                </field>
+                <field name="product_id" position="attributes">
+                    <attribute name="domain">[('purchase_ok', '=', True), ('department_ids.member_ids.user_id', 'in', [uid])]</attribute>
+                    <attribute name="options">{'no_create': True}</attribute>
+                </field>
+                <field name="account_analytic_id" position="attributes">
+                    <attribute name="domain">[('department_ids.member_ids.user_id', 'in', [uid])]</attribute>
+                    <attribute name="options">{'no_create': True}</attribute>
+                </field>
+                <field name="order_line" position="attributes">
+                    <attribute name="attrs">{'readonly': ['|', ('state', 'in', ('done', 'cancel')), ('invoice_count', '!=', 0)]}</attribute>
+                </field>
+                <field name="taxes_id" position="attributes">
+                    <attribute name="domain">[('type_tax_use', '=', 'purchase'), ('company_id', '=', company_id)]</attribute>
+                </field>
+            </field>
+        </record>
+
+        <!--Make invisible standard agreement-->
+        <record id="purchase_order_form_inherit_icode" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit.icode</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_requisition.purchase_order_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="requisition_id" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="purchase_order_tree_icode" model="ir.ui.view">
+            <field name="name">purchase.order.tree.icode</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="partner_ref"/>
+                </field>
+                <field name="invoice_status" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+                <field name="state" position="after">
+                    <field name="account_invoice_state"/>
+                </field>
+                <field name="partner_ref" position="after">
+                    <field name="vendor_date" widget="date"/>
+                </field>
+                <field name="origin" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_purchase_order_filter_icode" model="ir.ui.view">
+            <field name="name">request.quotations.select.icode</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="partner_ref"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

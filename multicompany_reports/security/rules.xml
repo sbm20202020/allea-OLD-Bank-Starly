@@ -1,0 +1,294 @@
+<odoo>
+    <data>
+        <record id="group_all_companies_in_reports" model="res.groups">
+            <field name="name">Can see all companies in reports</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+    </data>
+    <data noupdate="0">
+
+        <!--res.users-->
+
+        <!--Отмененное правило-->
+        <record id="stock.stock_inventory_line_comp_rule" model="ir.rule">
+            <field name="name">Inventory Line multi-company</field>
+            <field name="model_id" ref="stock.model_stock_inventory_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <!--Отмененное правило-->
+        <record id="stock.stock_picking_rule" model="ir.rule" >
+            <field name="name">stock_picking multi-company</field>
+            <field name="model_id" search="[('model','=','stock.picking')]" model="ir.model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <!--Отмененное правило-->
+        <record id="stock.stock_quant_rule" model="ir.rule">
+            <field name="name">stock_quant multi-company</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <!--Отмененное правило-->
+        <record id="stock.stock_location_comp_rule" model="ir.rule">
+            <field name="name">Location multi-company</field>
+            <field name="model_id" ref="stock.model_stock_location"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+
+        <record id="purchase.purchase_order_comp_rule" model="ir.rule">
+            <field name="name">Purchase Order multi-company</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="purchase.purchase_order_line_comp_rule" model="ir.rule">
+            <field name="name">Purchase Order Line multi-company</field>
+            <field name="model_id" ref="purchase.model_purchase_order_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="analytic.analytic_comp_rule" model="ir.rule">
+            <field name="name">Analytic multi company rule</field>
+            <field name="model_id" ref="analytic.model_account_analytic_account"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="analytic.analytic_line_comp_rule" model="ir.rule">
+            <field name="name">Analytic line multi company rule</field>
+            <field name="model_id" ref="analytic.model_account_analytic_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.account_move_comp_rule" model="ir.rule">
+            <field name="name">Account Entry</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.account_move_line_comp_rule" model="ir.rule">
+            <field name="name">Entry lines</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.account_comp_rule" model="ir.rule">
+            <field name="name">Account multi-company accounts</field>
+            <field name="model_id" ref="account.model_account_account"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.journal_comp_rule" model="ir.rule">
+            <field name="name">Journal multi-company</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.tax_comp_rule" model="ir.rule">
+            <field name="name">Tax multi-company</field>
+            <field name="model_id" ref="account.model_account_tax"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.invoice_comp_rule" model="ir.rule">
+            <field name="name">Invoice multi-company</field>
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.invoice_analysis_comp_rule" model="ir.rule">
+            <field name="name">Invoice Analysis multi-company</field>
+            <field name="model_id" ref="account.model_account_invoice_report"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.account_fiscal_position_comp_rule" model="ir.rule">
+            <field name="name">Account fiscal Mapping company rule</field>
+            <field name="model_id" ref="account.model_account_fiscal_position"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account.account_invoice_line_comp_rule" model="ir.rule">
+            <field name="name">Invoice Line company rule</field>
+            <field name="model_id" ref="account.model_account_invoice_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record model="ir.rule" id="account.account_bank_statement_comp_rule">
+            <field name="name">Account bank statement company rule</field>
+            <field name="model_id" ref="account.model_account_bank_statement"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record model="ir.rule" id="account.account_bank_statement_line_comp_rule">
+            <field name="name">Account bank statement line company rule</field>
+            <field name="model_id" ref="account.model_account_bank_statement_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record model="ir.rule" id="account.account_reconcile_model_template_comp_rule">
+            <field name="name">Account reconcile model template company rule</field>
+            <field name="model_id" ref="account.model_account_reconcile_model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record model="ir.rule" id="account.account_payment_comp_rule">
+            <field name="name">Account payment company rule</field>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account_asset.account_asset_category_multi_company_rule" model="ir.rule">
+            <field name="name">Account Asset Category multi-company</field>
+            <field name="model_id" ref="account_asset.model_account_asset_category"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account_asset.account_asset_asset_multi_company_rule" model="ir.rule">
+            <field name="name">Account Asset multi-company</field>
+            <field name="model_id" ref="account_asset.model_account_asset_asset"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account_budget.budget_post_comp_rule" model="ir.rule">
+            <field name="name">Budget post multi-company</field>
+            <field name="model_id" ref="account_budget.model_account_budget_post"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account_budget.budget_comp_rule" model="ir.rule">
+            <field name="name">Budget multi-company</field>
+            <field name="model_id" ref="account_budget.model_crossovered_budget"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="account_budget.budget_lines_comp_rule" model="ir.rule">
+            <field name="name">Budget lines multi-company</field>
+            <field name="model_id" ref="account_budget.model_crossovered_budget_lines"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+
+        <record id="base.res_company_rule_employee" model="ir.rule">
+            <field name="name">company rule employee</field>
+            <field name="model_id" ref="base.model_res_company"/>
+            <field name="domain_force">['|', ('id', 'child_of', [user.company_id.id]),
+                '&amp;', (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1), ('id', 'child_of', user.company_ids.ids)]</field>
+        </record>
+
+        <record id="hr_expense.hr_expense_comp_rule" model="ir.rule">
+            <field name="name">Expense multi company rule</field>
+            <field name="model_id" ref="hr_expense.model_hr_expense"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|', ('company_id','=',False), ('company_id', 'child_of', [user.company_id.id]),
+                                            '&amp;',
+                                        '|', ('company_id','=',False), ('company_id', 'child_of', user.company_ids.ids),
+                                             (user.has_group('multicompany_reports.group_all_companies_in_reports'), '=', 1)]</field>
+        </record>
+    </data>
+</odoo>

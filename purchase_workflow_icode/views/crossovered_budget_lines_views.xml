@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_crossovered_budget_line_form_icode" model="ir.ui.view">
+            <field name="name">crossovered.budget.line.form.icode</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form"/>
+            <field name="arch" type="xml">
+                <field name="paid_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="practical_amount" position="attributes">
+                    <attribute name="string">Paid Amount</attribute>
+                </field>
+                <field name="theoritical_amount" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="percentage" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <xpath expr="//sheet/group" position="after">
+                    <field name="analytic_line_ids">
+                        <tree>
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                            <field name="company_currency_id" invisible="1"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="analytic_amount_currency" widget="monetary"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_crossovered_budget_line_tree_icode" model="ir.ui.view">
+            <field name="name">crossovered.budget.line.tree.icode</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="crossovered_budget_id" position="attributes">
+                    <attributes name="invisible">0</attributes>
+                </field>
+                <field name="paid_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="practical_amount" position="attributes">
+                    <attribute name="string">Paid Amount</attribute>
+                </field>
+                <field name="theoritical_amount" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="percentage" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+        <record id="view_crossovered_budget_line_pivot" model="ir.ui.view">
+            <field name="name">crossovered.budget.line.pivot</field>
+            <field name="model">crossovered.budget.lines</field>
+            <field name="arch" type="xml">
+                <pivot string="Budgets">
+                    <field name="practical_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="account_budget.act_crossovered_budget_lines_view" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+
+        <record id="action_crossovered_budget_lines_view_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="view_crossovered_budget_line_pivot"/>
+            <field name="act_window_id" ref="account_budget.act_crossovered_budget_lines_view"/>
+        </record>
+    </data>
+</odoo>

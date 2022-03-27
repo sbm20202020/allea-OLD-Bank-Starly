@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_expense_import" model="ir.ui.view">
+        <field name="name">Test Reports</field>
+        <field name="model">hr.expense.import</field>
+        <field name="arch" type="xml">
+            <form string="Import Travel/Expense report">
+                <group>
+                    <field name="type_file"/>
+                    <field name="report_file" filename="filename"/>
+                    <field name="filename" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="import_report" string="Import Report" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_hr_expense_import" model="ir.actions.act_window">
+        <field name="name">Import Travel/Expense Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.expense.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_hr_expense_import"/>
+    </record>
+
+    <menuitem id="menu_hr_expense_import_report" name="Import Report" sequence="5" parent="hr_expense.menu_hr_expense_root" groups="base.group_user" action="action_view_hr_expense_import"/>
+</odoo>

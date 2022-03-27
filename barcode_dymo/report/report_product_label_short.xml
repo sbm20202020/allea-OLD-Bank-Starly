@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_product_label_short">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="row">
+                        <img class="col-xs-10" style="padding-right: 0px; padding-left: 0px; height: 42px" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 1000, 100)"/>
+                        <div class="col-xs-2 text-center" style="padding-right: 0px; padding-left: 0px; font-size: 12px" t-field="o.name"/>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

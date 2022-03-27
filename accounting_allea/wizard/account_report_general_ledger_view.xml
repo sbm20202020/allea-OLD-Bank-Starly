@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_report_general_ledger_view2" model="ir.ui.view">
+        <field name="name">General Ledger</field>
+        <field name="model">account.report.general.ledger</field>
+        <field name="inherit_id" ref="account.account_report_general_ledger_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='company_ids']" position="after">
+                    <field name="separate_pages_for_accounts_by_print"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

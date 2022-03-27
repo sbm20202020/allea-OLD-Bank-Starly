@@ -1,0 +1,12 @@
+<odoo>
+        <!-- stylesheets -->
+        <!--<template id="assets_financial_report">-->
+        <!--    <link rel="stylesheet" href="/account_icode/static/src/less/group_lines_bold.less" />-->
+        <!--</template>-->
+        <!--<template id="assets_backend" name="account_icode static_resources assets" inherit_id="web.assets_backend">-->
+        <!--    <xpath expr="." position="inside">-->
+        <!--        <link rel="stylesheet" href="/account_icode/static/src/less/group_lines_bold.less" type="text/less"/>-->
+        <!--    </xpath>-->
+        <!--</template>-->
+
+</odoo>

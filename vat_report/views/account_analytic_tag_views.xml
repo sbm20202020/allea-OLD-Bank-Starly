@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_analytic_tag_form_view_vat_report" model="ir.ui.view">
+        <field name="name">account.analytic.tag.form.vat_report</field>
+        <field name="model">account.analytic.tag</field>
+        <field name="inherit_id" ref="analytic.account_analytic_tag_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="is_vat_report_analytic_tag"/>  <!--Is Vat Report Analytic Tag-->
+                <field name="vat_report_analytic_tag_category" attrs="{'invisible': [('is_vat_report_analytic_tag', '=', False)]}"/>  <!--Vat Report Analytic Tag Category-->
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Add a field `deapartment_ids` on form-->
+        <record id="view_analytic_analytic_account_form_inherit_icode" model="ir.ui.view">
+            <field name="name">analytic.analytic.account.form.inherit.icode</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="department_ids" widget="many2many_tags" groups="account.group_account_manager"
+                           options="{'color_field': 'color', 'no_create': True}"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="account_budget.view_account_analytic_account_form_inherit_budget_icode" model="ir.ui.view">
+            <field name="name">account.analytic.account.form.inherit.budget.icode</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account_budget.view_account_analytic_account_form_inherit_budget"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="attributes">
+                    <attribute name="groups">purchase.group_purchase_user, account.group_account_user</attribute>
+                </xpath>
+                <field name="practical_amount" position="attributes">
+                    <attribute name="string">Paid Amount</attribute>
+                </field>
+                <field name="theoritical_amount" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="percentage" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="paid_date" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

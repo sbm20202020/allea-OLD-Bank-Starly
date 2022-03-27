@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="timesheet_view_tree_user_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.line.view.tree.with.user.inherit</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.timesheet_view_tree_user"/>
+            <field name="arch" type="xml">
+                <field name="employee_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="date" position="after">
+                    <field name="ref" invisible="context.get('to_invoice', False)"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="tag_ids" widget="many2many_tags"/>
+                    <field name="account_id"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="unit_amount" sum="Quantity"/>
+                    <field name="amount" sum="Total"/>
+                </field>
+            </field>
+        </record>
+        <record id="hr_timesheet_line_tree_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.line.tree.hr_timesheet</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="task_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="unit_amount" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

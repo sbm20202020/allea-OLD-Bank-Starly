@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_account_reconcile_model_form_loan_base" model="ir.ui.view">
+        <field name="name">account.reconcile.model.form.loan_base</field>
+        <field name="model">account.reconcile.model</field>
+        <field name="inherit_id" ref="account.view_account_reconcile_model_form"/>
+        <field name="arch" type="xml">
+            <field name="match_partner" position="before">
+                <field name="match_loan"/>
+                <field name="match_loan_id" attrs="{'invisible': [('match_loan', '!=', True )]}"/>
+            </field>
+            <label for="amount" position="attributes">
+                <attribute name="attrs">{'invisible': [('amount_type', 'in',['interest_first_principal_second', 'principal_first_interest_second'])]}</attribute>
+            </label>
+            <field name="amount" position="attributes">
+                <attribute name="attrs">{'invisible': [('amount_type', 'in',['interest_first_principal_second', 'principal_first_interest_second'])]}</attribute>
+            </field>
+            <label for="second_amount" position="attributes">
+                <attribute name="attrs">{'invisible': [('second_amount_type', 'in',['interest_first_principal_second', 'principal_first_interest_second'])]}</attribute>
+            </label>
+            <field name="second_amount" position="attributes">
+                <attribute name="attrs">{'invisible': [('second_amount_type', 'in',['interest_first_principal_second', 'principal_first_interest_second'] )]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

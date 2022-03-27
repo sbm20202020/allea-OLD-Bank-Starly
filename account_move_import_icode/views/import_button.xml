@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="account_journal_dashboard_kanban_view_inherited" model="ir.ui.view">
+            <field name="name">account.journal.dashboard.kanban.inherited</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+            <field name="priority">17</field>
+            <field name="arch" type="xml">
+                <xpath expr='//a[text()[contains(.,"Journal Entry")]]' position="after">
+                        <a t-if="journal_type == 'general'" type="action" name="%(account_move_import_icode.action_account_move_statement_import)d">Import Moves</a>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

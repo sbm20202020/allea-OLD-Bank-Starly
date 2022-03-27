@@ -1,0 +1,155 @@
+Date,Account Code,Label,Partner, Analytic Account,Analytic Tags,Amount Currency,Currency Code,Debit,Credit
+22/02/2018,510307000,Invoice 545,Paul Savvides,,Adminstrative Expenses,,EUR,500,
+22/02/2018,220200000,Invoice 545,Paul Savvides,,Adminstrative Expenses,,EUR,,500
+25/05/2018,220101001,Interest Accrued on Loan dd 25.01.16,,Oceanica Fincance,,,EUR,66523.05,
+25/05/2018,420101000,Interest Accrued on Loan dd 25.01.16,,Oceanica Fincance,,,EUR,,66523.05
+23/08/2018,510301001,Salary for august Employee 1,,,Salary Expenses,,EUR,5000,
+23/08/2018,220404000,Salary for august Employee 1,,,Salary Expenses,,EUR,,5000
+23/08/2018,510301004,Sif for august Employee 1,,,Socia Insurance Expenses,,EUR,652.45,
+23/08/2018,220405000,Sif for august Employee 1,,,Socia Insurance Expenses,,EUR,,652.45
+25/08/2018,530200000,Bank Charges,Moi Ostrov Ltd,,Financial Expenses,,EUR,10,
+25/08/2018,220200000,Bank Charges,Moi Ostrov Ltd,,Financial Expenses,,EUR,,10
+31/10/2018,510401000,inv 1624 dd 13.10.18,Moi Ostrov Ltd,,Marketing and PR Costs,,EUR,1520,
+31/10/2018,220200000,inv 1624 dd 13.10.18,Moi Ostrov Ltd,,Marketing and PR Costs,,EUR,,1520
+20/10/2018,510308000,DHL EXPRESS inv 4479843152 dd 15/08/18,DHL,Oval 10 floor,Adminstrative Expenses,,USD,41,
+20/10/2018,220200000,DHL EXPRESS inv 4479843152 dd 15/08/18,DHL,Oval 10 floor,Adminstrative Expenses,,USD,,41
+26/10/2018,510202000,Odoo 2 user Licenses 1 year inv. SO2018/413636 dd. 24.10.18 ,Odoo S.A.,Odoo,Operation Expenses,,EUR,280.46,
+26/10/2018,220200000,Odoo 2 user Licenses 1 year inv. SO2018/413636 dd. 24.10.18 ,Odoo S.A.,Odoo,Operation Expenses,,EUR,,280.46
+26/10/2018,120501003,Loan Payable,Emilisame,Oval 10 floor,,,USD,10000,
+26/10/2018,220101011,Loan Payable,Emilisame,Oval 10 floor,,,USD,,10000
+28/10/2018,120104001,Interest Accrued Income,Siberwood,,,2105,RUB,,
+28/10/2018,420101000,Interest Accrued Income,Siberwood,,,-2105,RUB,,
+28/10/2018,520201000,Lindmal Consulting Inv LC0108/18,Lindmal Consulting ,,Consulting Expenses,,EUR,4200,
+28/10/2018,220200000,Lindmal Consulting Inv LC0108/18,Lindmal Consulting ,,Consulting Expenses,,EUR,,4200
+29/10/2018,530500000,Interest Accrued Expenses,Emilisame,,,4378,USD,,
+29/10/2018,210101002,Interest Accrued Expenses,Emilisame,,,-4378,USD,,
+29/10/2018,120104001,Loan Recieivable,Siberwood,,,512000,RUB,,
+29/10/2018,120501004,Loan Recieivable,Siberwood,,,-512000,RUB,,
+29/10/2018,510201004,Mobile phones for october inv 2190345,PrimeTel,,Operation Expenses,,EUR,610.4,
+29/10/2018,220200000,Mobile phones for october inv 2190345,PrimeTel,,Operation Expenses,,EUR,,610.4
+30/10/2018,510201001,Electricity bill for period 12.06.18 - 15.10.18,AIK,,Operation Expenses,,EUR,384.17,
+30/10/2018,220200000,Electricity bill for period 12.06.18 - 15.10.18,AIK,,Operation Expenses,,EUR,,384.17
+30/10/2018,220200000,Paid for Electricity,AIK,,Operation Expenses,,EUR,384.17,
+30/10/2018,120501002,Paid for Electricity,AIK,,Operation Expenses,,EUR,,384.17
+30/10/2018,220404000,Salary for august Employee 1,,,Salary Expenses,,EUR,5000,
+30/10/2018,120501001,Salary for august Employee 1,,,Salary Expenses,,EUR,,5000
+31/10/2018,520201000,inv. 1612 for translation services,NGK Cyprus Adveriser Ltd,,Consulting and Professional services,89,RUB,,
+31/10/2018,220200000,inv. 1612 for translation services,NGK Cyprus Adveriser Ltd,,Consulting and Professional services,-89,RUB,,
+31/10/2018,520204000,inv 5462-4 Audit services ,Yiallourides and Partners LTD,,Consulting and Professional services,3190,USD,,
+31/10/2018,220200000,inv 5462-4 Audit services ,Yiallourides and Partners LTD,,Consulting and Professional services,-3190,USD,,
+31/10/2018,510204000,Lease agreement dd 12/05/17,Sova Group CY,Oval 10 floor,Operation Expenses,,EUR,2600,
+31/10/2018,220200000,Lease agreement dd 12/05/17,Sova Group CY,Oval 10 floor,Operation Expenses,,EUR,,2600
+03/11/2018,220200000,inv 5462-4 Audit services payment,Yiallourides and Partners LTD,,Consulting and Professional services,3190,USD,,
+03/11/2018,120501005,inv 5462-4 Audit services payment,Yiallourides and Partners LTD,,Consulting and Professional services,-3190,USD,,
+03/11/2018,220200000,Lease agreement dd 12/05/17 payment,Sova Group CY,,Operation Expenses,,EUR,2600,
+03/11/2018,120501001,Lease agreement dd 12/05/17 payment,Sova Group CY,,Operation Expenses,,EUR,,2600
+03/11/2018,220200000,"inv. 1612 for translation services, payment",NGK Cyprus Adveriser Ltd,,Consulting and Professional services,89,RUB,,
+03/11/2018,120501004,"inv. 1612 for translation services, payment",NGK Cyprus Adveriser Ltd,,Consulting and Professional services,-89,RUB,,
+03/11/2018,510305003,company car insurance,Ethnici,,Adminstrative Expenses,,EUR,135,
+03/11/2018,220200000,company car insurance,Ethnici,,Adminstrative Expenses,,EUR,,135
+03/11/2018,520101000,Income Tax,,,Taxes,,EUR,3210.7,
+03/11/2018,220501000,Income Tax,,,Taxes,,EUR,,3210.7
+05/11/2018,110103000,Vehicle,Emilisame,,,,EUR,21650,
+05/11/2018,220200000,Vehicle,Emilisame,,,,EUR,,21650
+05/11/2018,120502000,Cash in hand,,,,600,RUB,,
+05/11/2018,120501004,Cash in hand,,,,-600,RUB,,
+05/11/2018,220200000,Payment for Emilisame for electricity,Emilisame,,,,EUR,312,
+05/11/2018,120501003,Payment for Emilisame for electricity,Emilisame,,,,EUR,,312
+07/11/2018,510207000,Depreciation on vehicle,,,Operation Expenses,,EUR,945.8,
+07/11/2018,110103999,Depreciation on vehicle,,,Operation Expenses,,EUR,,945.8
+07/11/2018,210101002,Interest payment,Emilisame,,,4378,USD,,
+07/11/2018,120501005,Interest payment,Emilisame,,,-4378,USD,,
+08/11/2018,530500000,Interest Accrued Expenses dd 12.07.16,Oceanica Holding,,,,EUR,2615.8,
+08/11/2018,210101004,Interest Accrued Expenses dd 12.07.16,Oceanica Holding,,,,EUR,,2615.8
+08/11/2018,510403000,Inv. 1512 dd.11.06.18,SAPO giveaways,,Marketing and PR Costs,,EUR,316.8,
+08/11/2018,220200000,Inv. 1512 dd.11.06.19,SAPO giveaways,,Marketing and PR Costs,,EUR,,316.8
+09/11/2018,520205000,Professional Services inv 12-0854,KPMG,,Consulting and Professional services,2140,USD,,
+09/11/2018,220200000,Professional Services inv 12-0854,KPMG,,Consulting and Professional services,-2140,USD,,
+09/11/2018,510202000,HP Stereo USB Headset inv 34,Simplex,,Operation Expenses,,EUR,21,
+09/11/2018,220200000,HP Stereo USB Headset inv 34,Simplex,,Operation Expenses,,EUR,,21
+10/11/2018,110104000,inv 32-708 Laptop,Simplex,Oval 10 floor,,,EUR,417,
+10/11/2018,220200000,inv 32-708 Laptop,Simplex,Oval 10 floor,,,EUR,,417
+12/11/2018,510201003,Internet Costs,Fusion IT Consultant,,Operation Expenses,,EUR,62,
+12/11/2018,220200000,Internet Costs,Fusion IT Consultant,,Operation Expenses,,EUR,,62
+12/11/2018,220200000,Inv. 1512 dd.11.06.18 payment,SAPO giveaways,,,316,USD,,
+12/11/2018,120501005,Inv. 1512 dd.11.06.19 payment,SAPO giveaways,,,-316,USD,,
+13/11/2018,220200000,inv 32-708 Laptop payment,Simplex,,,,EUR,417,
+13/11/2018,120501003,inv 32-708 Laptop payment,Simplex,,,,EUR,,417
+13/11/2018,510202000,Timesheet,Odoo S.A.,Odoo,,,EUR,72,
+13/11/2018,220200000,Timesheet,Odoo S.A.,Odoo,,,EUR,,72
+15/11/2018,510304001,Business flight,Aeroflot,,Adminstrative Expenses,315.6,RUB,,
+15/11/2018,220200000,Business flight,Aeroflot,,Adminstrative Expenses,-315.6,RUB,,
+15/11/2018,510406000,Business address and mail handling service 12 months,Soluca Real Estate Consultancy Ltd,,,1269.9,USD,,
+15/11/2018,220200000,Business address and mail handling service 12 months,Soluca Real Estate Consultancy Ltd,,,-1269.9,USD,,
+17/11/2018,220200000,Professional Services inv 12-0854 payment,KPMG,,,2140,USD,,
+17/11/2018,120501005,Professional Services inv 12-0854 payment,KPMG,,,-2140,USD,,
+23/11/2018,210101004,Interest payment dd 12.07.16,Oceanica Holding,,,,EUR,2615.8,
+23/11/2018,120501001,Interest payment dd 12.07.16,Oceanica Holding,,,,EUR,,2615.8
+26/11/2018,220501000,Income Tax payment,,,Taxes,,EUR,3210.7,
+26/11/2018,120501001,Income Tax payment,,,Taxes,,EUR,,3210.7
+26/11/2018,120200000,Income for consulting service,Sova Group CY,,Sales Income,,EUR,184,
+26/11/2018,410200000,Income for consulting service,Sova Group CY,,Sales Income,,EUR,,184
+13/11/2018,530200000,Bank Charges,Odoo S.A.,Odoo,Financial Expenses,,EUR,5,
+13/11/2018,220200000,Bank Charges,Odoo S.A.,Odoo,Financial Expenses,,EUR,,5
+26/11/2018,220200000,Timesheet payment,Odoo S.A.,Odoo,Operation Expenses,,EUR,72,
+26/11/2018,120501003,Timesheet payment,Odoo S.A.,Odoo,Operation Expenses,,EUR,,72
+26/11/2018,220200000,Business flight payment,Aeroflot,,Adminstrative Expenses,315.6,RUB,,
+26/11/2018,120501004,Business flight payment,Aeroflot,,Adminstrative Expenses,-315.6,RUB,,
+26/11/2018,510301001,Salary for novembe Employee 1,,,Salary Expenses,,EUR,5000,
+26/11/2018,220404000,Salary for novembe Employee 1,,,Salary Expenses,,EUR,,5000
+27/11/2018,510301004,Sif for august Employee 1,,,Socia Insurance Expenses,,EUR,150,
+27/11/2018,220405000,Sif for august Employee 1,,,Socia Insurance Expenses,,EUR,,150
+27/11/2018,510304002,Petrol,ESSO,,Adminstrative Expenses,,EUR,72.15,
+27/11/2018,220200000,Petrol,ESSO,,Adminstrative Expenses,,EUR,,72.15
+29/11/2018,220200000,Petrol,ESSO,,Adminstrative Expenses,,EUR,72.15,
+29/11/2018,120501001,Petrol,ESSO,,Adminstrative Expenses,,EUR,,72.15
+30/11/2018,220404000,Salary for novembe Employee 1,,,Salary Expenses,,EUR,5000,
+30/11/2018,120501001,Salary for novembe Employee 1,,,Salary Expenses,,EUR,,5000
+30/11/2018,220200000,HP Stereo USB Headset inv 34 payment,Simplex,,Operation Expenses,,EUR,21,
+30/11/2018,120501001,HP Stereo USB Headset inv 34 payment,Simplex,,Operation Expenses,,EUR,,21
+30/11/2018,220200000,Business address and mail handling service 12 months payment,Soluca Real Estate Consultancy Ltd,,Marketing and PR Costs,1269.9,USD,,
+30/11/2018,120501005,Business address and mail handling service 12 months payment,Soluca Real Estate Consultancy Ltd,,Marketing and PR Costs,-1269.9,USD,,
+01/12/2018,510202000,Annual Maintenance for Excess2000 Pro. Multi Currency- Two Users,INTELISOFTCY LTD,,Operation Expenses,,EUR,600,
+01/12/2018,220200000,Annual Maintenance for Excess2000 Pro. Multi Currency- Two Users,INTELISOFTCY LTD,,Operation Expenses,,EUR,,600
+03/12/2018,510405000,SUB - OFFSET DIGITAL PRINTING,Phil. Andreou Digital Printing Services Ltd,,Marketing and PR Costs,,EUR,612.8,
+03/12/2018,220200000,SUB - OFFSET DIGITAL PRINTING,Phil. Andreou Digital Printing Services Ltd,,Marketing and PR Costs,,EUR,,612.8
+03/12/2018,220200000,Annual Maintenance for Excess2000 Pro. Multi Currency- Two Users,INTELISOFTCY LTD,,Operation Expenses,,EUR,600,
+03/12/2018,120501001,Annual Maintenance for Excess2000 Pro. Multi Currency- Two Users,INTELISOFTCY LTD,,Operation Expenses,,EUR,,600
+03/12/2018,530500000,Interest Accrued Expenses,Siberwood LLC,Oval 10 floor,Financial Expenses,,EUR,1250.35,
+03/12/2018,220101002,Interest Accrued Expenses,Siberwood LLC,Oval 10 floor,Financial Expenses,,EUR,,1250.35
+03/12/2018,510401000,"Cannes International Emigration & Luxury Property Expo, 2018",Prime Media Marketing Group LLP,,Marketing and PR Costs,612,RUB,,
+03/12/2018,220200000,"Cannes International Emigration & Luxury Property Expo, 2018",Prime Media Marketing Group LLP,,Marketing and PR Costs,-612,RUB,,
+10/12/2018,220101002,Interest Accrued Expenses,Siberwood LLC,Oval 10 floor,Financial Expenses,,EUR,1250.35,
+10/12/2018,120501001,Interest Accrued Expenses,Siberwood LLC,Oval 10 floor,Financial Expenses,,EUR,,1250.35
+10/12/2018,510304006,Business trip,Ozon,,Adminstrative Expenses,137.18,RUB,,
+10/12/2018,220200000,Business trip,Ozon,,Adminstrative Expenses,-137.18,RUB,,
+10/12/2018,120200000,Income from sale of shares,Nilufar,,Finance Income,,EUR,21480,
+10/12/2018,420201000,Income from sale of shares,Nilufar,,Finance Income,,EUR,,21480
+10/12/2018,120501002,Income from sale of shares ,Nilufar,,Finance Income,,EUR,21480,
+10/12/2018,120200000,Income from sale of shares,Nilufar,,Finance Income,,EUR,,21480
+12/12/2018,220101011,Unrealized Exchange Gain,Emilisame,,,,EUR,1494,
+12/12/2018,420299000,Unrealized Exchange Gain,Emilisame,,,,EUR,,1494
+15/12/2018,220200000,"Cannes International Emigration & Luxury Property Expo, 2018 payment",Prime Media Marketing Group LLP,,Marketing and PR Costs,612,RUB,,
+15/12/2018,120501004,"Cannes International Emigration & Luxury Property Expo, 2018 payment",Prime Media Marketing Group LLP,,Marketing and PR Costs,-612,RUB,,
+15/12/2018,220200000,Business trip payment,Ozon,,Adminstrative Expenses,137.18,RUB,,
+15/12/2018,120501004,Business trip payment,Ozon,,Adminstrative Expenses,-137.18,RUB,,
+15/12/2018,510201001,Electricity bill for connetion,AIK,Oval 10 floor,Operation Expenses,,EUR,1360,
+15/12/2018,220200000,Electricity bill for connetion,AIK,Oval 10 floor,Operation Expenses,,EUR,,1360
+17/12/2018,120501004,Loan repayment,Siberwood,,,512000,RUB,,
+17/12/2018,120104001,Loan repayment,Siberwood,,,-512000,RUB,,
+17/12/2018,520103000,VAT,,,Taxes,,EUR,1749,
+17/12/2018,220502000,VAT,,,Taxes,,EUR,,1749
+19/12/2018,539900000,Unrealized Exchange Loss,Ozon,,Financial Expenses,,EUR,21,
+19/12/2018,220200000,Unrealized Exchange Loss,Ozon,,Financial Expenses,,EUR,,21
+19/12/2018,510306000,Compensation of employee expenses,,,Adminstrative Expenses,,EUR,245.18,
+19/12/2018,220300000,Compensation of employee expenses,,,Adminstrative Expenses,,EUR,,245.18
+19/12/2018,120103001,Debt instruments Bond,Vlanik,,Financial instruments and investments,,EUR,3560,
+19/12/2018,220200000,Debt instruments Bond,Vlanik,,Financial instruments and investments,,EUR,,3560
+20/12/2018,120200000,Income from sale of bonds,Ohapka,,Finance Income,,EUR,1638,
+20/12/2018,420202000,Income from sale of bonds,Ohapka,,Finance Income,,EUR,,1638
+20/12/2018,120501001,Income from sale of bonds,Ohapka,,Finance Income,,EUR,1638,
+20/12/2018,120200000,Income from sale of bonds,Ohapka,,Finance Income,,EUR,,1638
+20/12/2018,220502000,VAT,,,Taxes,,EUR,1749,
+20/12/2018,120501002,VAT,,,Taxes,,EUR,,1749
+20/12/2018,220200000,SUB - OFFSET DIGITAL PRINTING payment,Phil. Andreou Digital Printing Services Ltd,,Marketing and PR Costs,,EUR,612.8,
+20/12/2018,120501002,SUB - OFFSET DIGITAL PRINTING payment,Phil. Andreou Digital Printing Services Ltd,,Marketing and PR Costs,,EUR,,612.8

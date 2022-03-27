@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="vat_report_wizard_form" model="ir.ui.view">
+        <field name='name'>vat_report_wizard.form</field>
+        <field name='model'>vat_report_wizard</field>
+        <field name='arch' type='xml'>
+            <form string='Vat Report'>
+                <sheet>
+                    <group>
+                        <group colspan="4">
+                            <field name="company_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="analytic_tag_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="is_paid_invoices_only"/>
+                            <field name="data" readonly="1" filename="filename"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name='action_process_report_xlsx' string='Process Report' class='oe_highlight' type='object'/>
+                    <button special="cancel" string="Cancel" type="object" class="btn btn-default oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="vat_report_wizard_action" model="ir.actions.act_window">
+        <field name="name">VAT Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vat_report_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="vat_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+            id="vat_report_report_finance_menu"
+            name="VAT Reporting"
+            parent="account.menu_finance_reports"
+            sequence="200"
+    />
+    <menuitem
+            id="vat_report_report_finance_menu_report"
+            name="VAT Report"
+            parent="vat_report.vat_report_report_finance_menu"
+            action="vat_report_wizard_action"
+            sequence="201"
+    />
+</odoo>

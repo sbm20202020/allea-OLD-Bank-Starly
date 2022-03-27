@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_expense_sheet_form" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.form.inherit.icode</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+        <field name="arch" type="xml">
+            <!--<field name="company_id" position="after">-->
+            <!--<field name="analytic_tag_ids" widget="many2many_tags" options="{'no_create': True}"/>-->
+            <!--</field>-->
+            <field name="expense_line_ids" position="replace">
+                <field name="expense_line_ids" nolabel="1" widget="many2many" domain="[('state', '=', 'draft')]"
+                       options="{'not_delete': True, 'reload_on_button': True, 'no_create': True}"
+                       context="{'expense_adding_line': True}">
+                    <tree decoration-danger="is_refused">
+                        <field name="date"/>
+                        <field name="name"/>
+                        <field name="state" invisible="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>
+                        <field name="message_unread" invisible="1"/>
+                        <field name="attachment_number" string=" "/>
+                        <button name="action_get_attachment_view" string="View Attachments" type="object"
+                                icon="fa-paperclip"/>
+                        <field name="tax_ids" widget="many2many_tags"/>
+                        <field name="tax_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="total_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="is_refused" invisible="True"/>
+                        <button name="568" states="reported, refused" string="Refuse"
+                                context="{'hr_expense_refuse_model':'hr.expense'}" type="action"
+                                groups="hr_expense.group_hr_expense_user, account.group_account_user" icon="fa-times"
+                                attrs="{'invisible': ['|', ('is_refused', '=', True),('state', 'in', ['done'])]}"/>
+                    </tree>
+                </field>
+
+            </field>
+        </field>
+    </record>
+
+</odoo>

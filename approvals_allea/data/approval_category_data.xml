@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="approval_category_data_application_pbd_coefficient_purchase" model="approval.category">
+            <field name="name">Payment Application PLOT/Building/Density coefficient Purchase</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_pbd_coefficient_purchase.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment
+                plot/building/density purchase. Required approvals fro this payment: Dalila Mikellidou, Ksenia
+                Zemlyakova, Alexander Yakovlev, Andrey Kalinkin, Oleg Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">5</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_hr" model="approval.category">
+            <field name="name">HR Payment</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/application_hr.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment HR services
+                (recruitment, health insurance, employees visas, birthday presents) under any project of a group.
+                Required approvals for this payment: Dalila Mikellidou,Oleg Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">2</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_legal" model="approval.category">
+            <field name="name">Legal Payment</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/application_legal.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment legal services
+                under any project of a group. Required approvals for this payment: Dalila Mikellidou,Oleg
+                Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">2</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_zaria_fee_developer_contract" model="approval.category">
+            <field name="name">Zaria fee developer contract Payment</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_zaria_fee_developer_contract.png"/>
+            <field name="description">Please, fill this application in order to proceed with payment under fee developer
+                contract for Zaria projecr. Required approvals for this payment: Ksenia Zemlyakova, Alexander Yakovlev,
+                Oleg Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">3</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_holding_it" model="approval.category">
+            <field name="name">Holding IT Payment</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_holding_it.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment IT equipment,
+                computer hardware, IT costs, IT services, software licenses. Required approvals for this payment: Oleg
+                Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">1</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_zaria_engineering_consultants" model="approval.category">
+            <field name="name">Zaria Engineering consultants Payment</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_zaria_fee_developer_contract.png"/>
+            <field name="description">Please, fill this application in order to proceed with engineering consultants
+                payment for Zaria project. Required approvals for this payment: Sergey Ivanov, Alexander Yakovlev, Oleg
+                Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">3</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_zaria_legal_expenses" model="approval.category">
+            <field name="name">Zaria Legal Expenses Payment</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_zaria_fee_developer_contract.png"/>
+            <field name="description">Please, fill this application in order to proceed with payment for legal expenses
+                for Zaria project. Required approvals for this payment: Dalila Mikellidou, Alexander Yakovlev, Oleg
+                Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">3</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+
+        <record id="approval_category_data_application_zaria_financial_expenses" model="approval.category">
+            <field name="name">Zaria Financial Expenses Payment</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_zaria_fee_developer_contract.png"/>
+            <field name="description">Please, fill this application in order to proceed with payment for financial
+                expenses for Zaria project. Required approvals for this payment: Ksenia Zemlyakova, Alexander Yakovlev,
+                Oleg Polyakov</field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">4</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+
+        <record id="approval_category_data_application_business_trip" model="approval.category">
+            <field name="name">Business Trip</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/plane_departure_solid.svg"/>
+            <field name="sequence">1</field>
+            <field name="has_date">no</field>
+            <field name="has_period">required</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">no</field>
+            <field name="has_payment_method">no</field>
+            <field name="has_location">required</field>
+            <field name="requirer_document">optional</field>
+            <field name="approval_minimum">1</field>
+            <field name="is_manager_approver">1</field>
+        </record>
+        <record id="approval_category_data_application_contract_approval" model="approval.category">
+            <field name="name">Contract Approval</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/file_signature_solid.svg"/>
+            <field name="sequence">30</field>
+            <field name="has_date">no</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">optional</field>
+            <field name="has_reference">required</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">no</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">optional</field>
+            <field name="approval_minimum">1</field>
+
+            <field name="is_manager_approver">0</field>
+        </record>
+        <record id="approval_category_data_application_payment_application" model="approval.category">
+            <field name="name">Payment Application</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/credit_card_solid.svg"/>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">required</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">optional</field>
+            <field name="approval_minimum">1</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_luxembourg_fund" model="approval.category">
+            <field name="name">Payment Application Luxembourg Fund</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/application_luxembourg_fund.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment under Luxembourg
+                fund project. Required approvals for this payment: Ksenia Zemlyakova, Alexander Yakovlev, Dmitry
+                Pryanishnikov, Oleg Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">4</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_holding_office_management" model="approval.category">
+            <field name="name">Payment Application Holding Office Management</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_holding_office_management.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment office sundries,
+                cleaning, electricity or water, rent and license fees. Required approvals for this payment: Oleg
+                Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">1</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_zaria_gr" model="approval.category">
+            <field name="name">Payment Application Zaria GR</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_holding_office_management.svg"/>
+            <field name="description">Please, fill this application in order to proceed with GR payment for Zaria
+                project. Required approvals for this payment: Alexander Yakovlev, Oleg Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">2</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_staff_house" model="approval.category">
+            <field name="name">Payment Application Staff House</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/application_staff_house.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment under "Staff House
+                development Project". Required approvals for this payment: Elena Drakou, Alexander Yakovlev, Oleg
+                Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">3</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+
+        <record id="approval_category_data_application_finance" model="approval.category">
+            <field name="name">Payment Application Finance</field>
+            <field name="image" type="base64" file="approvals_allea/static/src/img/application_finance.svg"/>
+            <field name="description">Please, fill this application in order to proceed with payment accounting, audit,
+                tax services under any project of a group. Required approvals for this payment: Ksenia Zemlyakova,Oleg
+                Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">2</field>
+
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+        <record id="approval_category_data_application_zaria_surveys" model="approval.category">
+            <field name="name">Payment Application Zaria Surveys</field>
+            <field name="image" type="base64"
+                   file="approvals_allea/static/src/img/application_zaria_fee_developer_contract.png"/>
+            <field name="description">Please, fill this application in order to proceed with payment for surveys for
+                Zaria project. Required approvals for this payment: Sergey Ivanov, Alexander Yakovlev, Oleg Polyakov
+            </field>
+            <field name="sequence">40</field>
+            <field name="has_date">required</field>
+            <field name="has_period">no</field>
+            <field name="has_item">no</field>
+            <field name="has_quantity">no</field>
+            <field name="has_amount">no</field>
+            <field name="has_reference">no</field>
+            <field name="has_partner">required</field>
+            <field name="has_payment_method">required</field>
+            <field name="has_location">no</field>
+            <field name="requirer_document">required</field>
+            <field name="approval_minimum">3</field>
+            <field name="is_manager_approver">0</field>
+            <field name="create_document">purchase_order</field>
+        </record>
+    </data>
+</odoo>

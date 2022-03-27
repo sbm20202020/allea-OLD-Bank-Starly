@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="account_move_import_view" model="ir.ui.view">
+            <field name="name">Import Moves</field>
+            <field name="model">account.move.statement.import</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Import Moves">
+                    <group>
+                        <field name="data_file" filename="filename"/>
+                        <field name="filename" invisible="1"/>
+                        <field name="journal_id"
+                               domain="[('type', '=', 'general')]"
+                               context="{'default_type':'general'}"/>
+                        <!--<field name="date_filter_start"/>-->
+                        <!--<field name="date_filter_end"/>-->
+                    </group>
+                    <group>
+                        <br/><br/><b> How to import your moves :</b>
+                        <br/><label string= "1. Get ready your moves csv-file."/>
+                        <br/><label string= "2. Select the file"/>
+                        <br/><label string= "3. Click 'Import'."/>
+                    </group>
+                    <footer>
+                        <button name="import_file" string="_Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_account_move_statement_import" model="ir.actions.act_window">
+            <field name="name">Import Moves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.move.statement.import</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="account_move_import_view"/>
+        </record>
+
+        <!--<menuitem id="menu_account_bank_statement_import" parent="account.account_account_menu" action="action_account_bank_statement_import" sequence="8"/>-->
+
+    </data>
+</odoo>

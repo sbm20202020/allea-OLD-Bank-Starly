@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--<record id="view_move_form_modif" model="ir.ui.view">-->
+    <!--    <field name="name">account.move.form.modif</field>-->
+    <!--    <field name="model">account.move</field>-->
+    <!--    <field name="inherit_id" ref="account.view_move_form"/>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--        <xpath expr="//notebook/page" position="replace">-->
+    <!--            <page string="Journal Items">-->
+    <!--                <field name="line_ids" widget="one2many_list"-->
+    <!--                       context="{'line_ids': line_ids, 'journal_id': journal_id }">-->
+    <!--                    <tree editable="bottom" string="Journal Items">-->
+    <!--                        <field name="parent_state" invisible="1"/>-->
+    <!--                        <field name="editable_tags" invisible="1"/>-->
+    <!--                        <field name="account_id"-->
+    <!--                               domain="[('company_id', '=', parent.company_id), ('deprecated', '=', False)]"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="partner_id"-->
+    <!--                               domain="['|', ('parent_id', '=', False), ('is_company', '=', True)]"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="name"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="analytic_account_id" groups="analytic.group_analytic_accounting"/>-->
+    <!--                        <field name="analytic_tag_ids" widget="many2many_tags"-->
+    <!--                               groups="analytic.group_analytic_accounting"-->
+    <!--                               attrs="{'readonly':[('editable_tags', '=', False)]}"/>-->
+    <!--                        <field name="amount_currency" groups="base.group_multi_currency"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="company_currency_id" invisible="1"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="company_id" invisible="1"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="debit" sum="Total Debit"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="credit" sum="Total Credit"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                        <field name="date_maturity" required="0"-->
+    <!--                               invisible="context.get('view_no_maturity', False)"-->
+    <!--                               attrs="{'readonly':[('parent_state', '=', 'posted')]}"/>-->
+    <!--                    </tree>-->
+    <!--                </field>-->
+    <!--                <field name="narration" colspan="4" placeholder="Add an internal note..." nolabel="1" height="50"/>-->
+    <!--            </page>-->
+    <!--        </xpath>-->
+    <!--    </field>-->
+    <!--</record>-->
+    <!--<record id="view_move_form_inherit_account_post_confirm" model="ir.ui.view">-->
+    <!--    <field name="name">account.move.form.inherit3</field>-->
+    <!--    <field name="model">account.move</field>-->
+    <!--    <field name="inherit_id" ref="account.view_move_form"/>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--        <button name="post" position="replace">-->
+    <!--            <button name="post" states="draft" string="Post" type="object" class="oe_highlight"-->
+    <!--                    groups="account.group_account_invoice" confirm="Are you sure you want to do this?"/>-->
+    <!--        </button>-->
+    <!--    </field>-->
+    <!--</record>-->
+    <record id="view_account_form" model="ir.ui.view">
+        <field name="name">account.account.view.form.inherit.accounting_allea</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='group_id']" position="attributes">
+                <attribute name="options">{"no_create": true}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
